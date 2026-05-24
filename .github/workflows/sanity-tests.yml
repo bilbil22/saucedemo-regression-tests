@@ -11,24 +11,25 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v4
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-    - name: Set up Python
-      uses: actions/setup-python@v4
-      with:
-        python-version: '3.11'
-    
-    - name: Install dependencies
-      run: |
-        pip install -r requirements.txt
-        playwright install chromium
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+      
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+          playwright install chromium
 
-    - name: Run sanity tests
-      run : pytest -m sanity --browser chromium
+      - name: Run sanity tests
+        run : pytest -m sanity --browser chromium
 
-    - name: Upload HTML report
-      uses: actions/upload-artifact@v4
-      with:
-        name: sanity-test-report
-        path: reports/report.html 
+      - name: Upload HTML report
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: sanity-test-report
+          path: reports/report.html 
