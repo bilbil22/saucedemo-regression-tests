@@ -30,7 +30,7 @@ def test_locked_out_user_cannot_login(page):
     error = page.locator('[data-test="error"]')
     assert error.is_visible()
     assert "locked out" in error.inner_text().lower()
-
+    page.wait_  # Pause to visually confirm the error message
 
 def test_add_and_remove_item_updates_cart_badge(page):
     page.goto(URL)
