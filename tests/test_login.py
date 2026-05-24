@@ -3,8 +3,11 @@
 
 # sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 from pages.page_login import LoginPage
+import pytest
+
 URL = "https://www.saucedemo.com/"
 
+@pytest.mark.e2e
 
 def test_end_to_end_purchase(page):
 

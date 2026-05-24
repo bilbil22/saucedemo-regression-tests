@@ -1,6 +1,8 @@
+import pytest
+
 URL = "https://www.saucedemo.com/"
 
-
+@pytest.mark.e2e
 def test_end_to_end_purchase(page):
     page.goto(URL)
     page.fill("#user-name", "standard_user")
@@ -21,6 +23,7 @@ def test_end_to_end_purchase(page):
     assert page.locator(".complete-header").inner_text() == "Thank you for your order!"
 
 
+@pytest.mark.smoke
 def test_locked_out_user_cannot_login(page):
     page.goto(URL)
     page.fill("#user-name", "locked_out_user")
@@ -30,8 +33,10 @@ def test_locked_out_user_cannot_login(page):
     error = page.locator('[data-test="error"]')
     assert error.is_visible()
     assert "locked out" in error.inner_text().lower()
-    page.wait_  # Pause to visually confirm the error message
+    # page.wait_for_timeout(5000)  # Pause to visually confirm the error message
 
+
+@pytest.mark.sanity
 def test_add_and_remove_item_updates_cart_badge(page):
     page.goto(URL)
     page.fill("#user-name", "standard_user")
