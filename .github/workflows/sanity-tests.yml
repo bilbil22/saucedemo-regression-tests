@@ -7,7 +7,7 @@ on:
       - master
 
 jobs:
-sanity-tests:
+  sanity-tests:
     runs-on: ubuntu-latest
     
     steps:

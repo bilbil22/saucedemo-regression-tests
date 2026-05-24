@@ -23,7 +23,7 @@ jobs:
         playwright install chromium
 
     - name: Run smoke tests
-      run : pytest -m smoke --browser chromium
+      run: pytest -m smoke --browser chromium
 
     - name: Upload HTML report
       uses: actions/upload-artifact@v4
