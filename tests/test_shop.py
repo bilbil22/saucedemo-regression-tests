@@ -1,3 +1,4 @@
+# Linear Test Automation Framework or Script-Based Test Automation for SauceDemo using Playwright and Pytest
 import pytest
 
 URL = "https://www.saucedemo.com/"
@@ -49,3 +50,6 @@ def test_add_and_remove_item_updates_cart_badge(page):
 
     page.click('[data-test="remove-sauce-labs-backpack"]')
     assert page.locator(".shopping_cart_badge").inner_text() == "1"
+
+
+    # Refactoring of the test_shop.py to use the Page Object Model (POM) design pattern. The test_login.py utilizes the Page Object Model to encapsulate the login functionality, making the test more readable and maintainable.
