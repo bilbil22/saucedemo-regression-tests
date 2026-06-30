@@ -1,6 +1,6 @@
 # SauceDemo Regression Tests
 
-This project demonstrates a regression test suite for SauceDemo using Python and Playwright.
+This project demonstrates a regression test suite for SauceDemo using Python - Pytest and Playwright.
 
 Due to time constraints, the focus was on:
 - covering key user flows (login, cart, checkout)
